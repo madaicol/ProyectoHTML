@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="Es-es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tags HTML</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="../../script.js"></script>
+</head>
+
+<body>
+	<!--HEADER -->
+	<header id="main-header" style="background-color: #B6E548;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<a id="main-logo" href="index.html"><img src="../../img/home.png" alt="Imagen Home"></a>
+				</div>
+				<div class="col-sm-7">
+					<br>
+					<br>
+					<h1 id=main-menu>Drag and Drop</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="row">
+
+			<!--NAVEGAVILIDAD -->
+			<div class="col-sm-4">
+				<div id='cssmenu'>
+				<ul>
+						<li><a href='../../index.html'>Inicio</a></li>
+						<li class='has-sub'><a href='#'>HTML Tutorial</a>
+							<ul>
+								<li><a href='../HTML_Tutorial/q.html'>&lt;q&gt;</a></li>
+								<li><a href='../HTML_Tutorial/code.html'>&lt;code&gt;</a></li>
+								<li><a href='../HTML_Tutorial/style.html'>&lt;style&gt;</a></li>
+								<li><a href='../HTML_Tutorial/img.html'>&lt;img&gt;</a></li>
+								<li><a href='../HTML_Tutorial/table.html'>&lt;table&gt;</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">HTML Forms</a>
+							<ul>
+								<li><a href='../HTML_Forms/form.html'>&lt;form&gt;</a></li>
+								<li><a href='../HTML_Forms/select.html'>&lt;select&gt;</a></li>
+								<li><a href='../HTML_Forms/option.html'>&lt;option&gt;</a></li>
+								<li><a href='../HTML_Forms/textarea.html'>&lt;textarea&gt;</a></li>
+								<li><a href='../HTML_Forms/button.html'>&lt;button&gt;</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">HTML5</a>
+							<ul>
+								<li><a href='../HTML5/datalist.html'>&lt;datalist&gt;</a></li>
+								<li><a href='../HTML5/keygen.html'>&lt;keygen&gt;</a></li>
+								<li><a href='../HTML5/output.html'>&lt;output&gt;</a></li>
+								<li><a href='../HTML5/wbr.html'>&lt;wbr&gt;</a></li>
+								<li><a href='../HTML5/article.html'>&lt;article&gt;</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">HTML Graphics</a>
+							<ul>
+								<li><a href='../HTML_Graphics/canvas%201.html'>&lt;canvas 1&gt;</a></li>
+								<li><a href='../HTML_Graphics/canvas%202.html'>&lt;canvas 2&gt;</a></li>
+								<li><a href='../HTML_Graphics/svg%201.html'>&lt;svg 1&gt;</a></li>
+								<li><a href='../HTML_Graphics/svg%202.html'>&lt;svg 2&gt;</a></li>
+								<li><a href='../HTML_Graphics/svg%203.html'>&lt;svg 3&gt;</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">HTML Media</a>
+							<ul>
+								<li><a href='../HTML_Media/video.html'>&lt;video&gt;</a></li>
+								<li><a href='../HTML_Media/track.html'>&lt;track&gt;</a></li>
+								<li><a href='../HTML_Media/source.html'>&lt;source&gt;</a></li>
+								<li><a href='../HTML_Media/audio.html'>&lt;audio&gt;</a></li>
+								<li><a href='../HTML_Media/embed.html'>&lt;embed&gt;</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">HTML APIs</a>
+							<ul>
+								<li><a href='Geolocation.html'>Geolocation</a></li>
+								<li><a href='Drag%20and%20Drop.html'>Drag and Drop</a></li>
+								<li><a href='Application%20Cache.html'>Application Cache</a></li>
+								<li><a href='Web%20Workers.html'>Web Workers</a></li>
+								<li><a href='Server-Sent%20Events.html'>Server-Sent Events</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--INFORMACIÓN -->
+			<div class="col-sm-8">
+				<h1>Drag and Drop</h1>
+				<p>Tomar y soltar es parte del estandat HTML5</p>
+				<P>Drag and Drop es una caracteristica que permite al usuario coger un objeto y luego colocarlo en otra posición.</P>
+				<h2>Ejemplo de código</h2>
+				<textarea rows="8" cols="100">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+&lt;/style&gt;
+&lt;script&gt;
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Drag the W3Schools image into the rectangle:&lt;/p&gt;
+&lt;div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+				</textarea>
+				<a id="boton-ejemplo" href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_draganddrop" target="framename">Ver ejemplo</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!--FOOTER -->
+	<div class="footer" style="background-color:#0092B2;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h3 align="center" style="color:white">Escuela Politécnica Nacional</h3>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-sm-5">
+					<h4 align="center" style="color:white">Facultad de Ingenieria de Sistemas</h4>
+					<h4 align="center" style="color:white">Materia: Aplicaciones con Javascript</h4>
+					<h5 align="center" style="color:white">Realizado por Madai Arteaga</h5>
+				</div>
+				<div class="col-sm-6 col-xs-offset-1">
+					<h4 align="center" style="color:white">Información obetenida en:</h4>
+					<a href="http://www.w3schools.com" style="color:white"><h4 align="center">www.w3schools.com</h4></a>
+					<div class="row">
+						<div class="col-sm-4">
+							facebook
+						</div>
+						<div class="col-sm-4">
+							correo
+
+						</div>
+						<div class="col-sm-4">
+							otro
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>
